@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: 240 90% 27%;
+    /* Fallback */
+  }
+
+  body {
+    font-family: 'Inter', 'Cairo', sans-serif;
+  }
+}

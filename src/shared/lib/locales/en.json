@@ -1,0 +1,21 @@
+{
+    "brand": {
+        "name": "Adasa"
+    },
+    "common": {
+        "home": "Home",
+        "blog": "Blog",
+        "about": "About",
+        "search": "Search",
+        "searchPlaceholder": "Search posts...",
+        "readMore": "Read More",
+        "back": "Back",
+        "loading": "Loading...",
+        "noPosts": "No posts found",
+        "categories": "Categories",
+        "latestPosts": "Latest Posts"
+    },
+    "footer": {
+        "rights": "All rights reserved © 2024 Adasa"
+    }
+}

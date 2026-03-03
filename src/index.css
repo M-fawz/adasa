@@ -2,13 +2,114 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ──────────────────────────────────────────────────────────
+   Phase 1 — Design Tokens
+   Central CSS custom properties for the dark cinematic theme.
+   ────────────────────────────────────────────────────────── */
 @layer base {
   :root {
+    /* — Backgrounds — */
+    --bg: #0B0B0C;
+    --bg-2: #070708;
+
+    /* — Panels / cards — */
+    --panel: #121214;
+    --panel-2: #16161A;
+
+    /* — Typography — */
+    --text: #F4F4F5;
+    --muted: rgba(244, 244, 245, 0.65);
+
+    /* — Borders — */
+    --border: rgba(255, 255, 255, 0.08);
+
+    /* — Accent (orange) — */
+    --accent: #FF7A18;
+    --accent-soft: rgba(255, 122, 24, 0.12);
+
+    /* — Shadows & Radius — */
+    --shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.45);
+    --radius-card: 24px;
+
+    /* Legacy token kept for backward-compat */
     --primary: 240 90% 27%;
-    /* Fallback */
   }
 
   body {
+    background-color: var(--bg);
+    color: var(--text);
     font-family: 'Inter', 'Cairo', sans-serif;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────
+   Phase 1 — Background Utility  (.app-bg)
+
+   Applies a cinematic dark background with three layers:
+     1. Base color                 → the element itself
+     2. Subtle grid overlay        → ::before pseudo-element
+     3. Soft radial edge glows     → ::after  pseudo-element
+
+   Usage:  <div className="app-bg"> … </div>
+   ────────────────────────────────────────────────────────── */
+@layer utilities {
+  .app-bg {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+
+    /* Gentle vertical gradient so the page is not pure flat black */
+    background: linear-gradient(180deg,
+        var(--bg) 0%,
+        var(--bg-2) 100%);
+  }
+
+  /* Layer 1 — Grid overlay
+     A thin repeating grid. Kept very low-opacity so it stays subtle. */
+  .app-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.06;
+    background-image:
+      repeating-linear-gradient(0deg,
+        rgba(255, 255, 255, 0.07) 0px,
+        rgba(255, 255, 255, 0.07) 1px,
+        transparent 1px,
+        transparent 60px),
+      repeating-linear-gradient(90deg,
+        rgba(255, 255, 255, 0.07) 0px,
+        rgba(255, 255, 255, 0.07) 1px,
+        transparent 1px,
+        transparent 60px);
+  }
+
+  /* Layer 2 — Edge glows
+     Two radial gradients: orange/brown on the left and right edges.
+     Creates the cinematic warm-light effect seen on the reference site. */
+  .app-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.35;
+    background:
+      /* Left glow — warm orange, positioned at 0% 30% */
+      radial-gradient(ellipse 600px 900px at 0% 30%,
+        rgba(255, 122, 24, 0.25),
+        transparent 70%),
+      /* Right glow — softer brown, positioned at 100% 50% */
+      radial-gradient(ellipse 500px 800px at 100% 50%,
+        rgba(180, 100, 30, 0.18),
+        transparent 70%);
+  }
+
+  /* Ensure direct children of .app-bg sit above the pseudo overlays */
+  .app-bg>* {
+    position: relative;
+    z-index: 1;
   }
 }

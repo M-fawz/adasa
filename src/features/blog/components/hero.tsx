@@ -1,102 +1,120 @@
 import { useTranslation } from 'react-i18next';
-import { Button } from '@/shared/ui/Button';
+import { Link } from 'react-router-dom';
 import { ArrowRight, BookOpen, FileText, Folder, Users } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export function Hero() {
-    const { i18n } = useTranslation();
-    const isRrtl = i18n.dir() === 'rtl';
+    const { t, i18n } = useTranslation();
+    const isRtl = i18n.dir() === 'rtl';
 
     return (
-        <section className="relative min-h-[85vh] flex items-center justify-center bg-[#0B0B0B] overflow-hidden">
-            {/* Background Grid Overlay */}
-            <div
-                className="absolute inset-0 z-0 opacity-20 pointer-events-none"
-                style={{
-                    backgroundImage: `linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px)`,
-                    backgroundSize: '40px 40px'
-                }}
-            />
+        /* Full hero section — inherits global .app-bg background from MainLayout.
+           Only adds its own min-height and centering. */
+        <section className="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+            <div className="container mx-auto px-4 relative z-10 flex flex-col items-center text-center py-20">
 
-            {/* Radial Glow from Left */}
-            <div className="absolute left-[-10%] top-[20%] w-[30vw] h-[30vw] bg-[#F05A00] opacity-10 blur-[120px] rounded-full pointer-events-none" />
-
-            <div className="container mx-auto px-4 relative z-10 flex flex-col items-center text-center">
-
-                {/* Top Small Badge */}
+                {/* ── B) Welcome badge pill ── */}
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border mb-8"
+                    className="inline-flex items-center gap-2 px-5 py-2 rounded-full border mb-8"
                     style={{
-                        backgroundColor: 'rgba(255,122,0,0.08)',
-                        borderColor: 'rgba(255,122,0,0.25)',
+                        backgroundColor: 'var(--accent-soft)',
+                        borderColor: 'rgba(255,122,24,0.25)',
                     }}
                 >
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#ff7a00]" />
-                    <span className="text-sm font-medium text-[#ff7a00]">
-                        مرحباً بك في عدسة
+                    {/* Two small orange dots inside the pill */}
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)]" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-[var(--accent)] opacity-60" />
+                    <span className="text-sm font-medium text-[var(--accent)]">
+                        {t('hero.welcomeBadge')}
                     </span>
                 </motion.div>
 
-                {/* Main Title */}
+                {/* ── C) Main title — two lines, one accented word ── */}
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="text-5xl md:text-[64px] font-extrabold leading-[1.1] tracking-tight text-white mb-6 max-w-4xl"
+                    className="text-4xl sm:text-5xl md:text-[64px] font-extrabold leading-[1.1] tracking-tight text-[var(--text)] mb-6 max-w-4xl"
                 >
-                    اكتشف <span className="text-[#F05A00]">فن</span>
+                    {t('hero.titleLine1')}{' '}
+                    <span className="text-[var(--accent)]">{t('hero.titleHighlight')}</span>
                     <br />
-                    التصوير الفوتوغرافي
+                    {t('hero.titleLine2')}
                 </motion.h1>
 
-                {/* Subtitle */}
+                {/* ── D) Subtitle ── */}
                 <motion.p
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
-                    className="text-lg md:text-[18px] text-[rgba(255,255,255,0.7)] mb-10 max-w-[600px] leading-relaxed"
+                    className="text-base md:text-lg text-[var(--muted)] mb-10 max-w-[600px] leading-relaxed"
                 >
-                    انغمس في أسرار المحترفين ونصائح عملية لتطوير مهاراتك في التصوير
+                    {t('hero.subtitle')}
                 </motion.p>
 
-                {/* CTA Buttons */}
+                {/* ── E) CTA buttons ── */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.3 }}
                     className="flex flex-col sm:flex-row items-center gap-4 mb-20"
                 >
-                    <Button
-                        size="lg"
-                        className="rounded-full px-8 py-6 text-base bg-[#ff7a00] hover:bg-[#ff8a20] border-none text-white shadow-lg shadow-orange-900/20"
+                    {/* Primary — orange filled pill */}
+                    <Link
+                        to="/blog"
+                        className="inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-semibold text-white transition-all duration-200 hover:brightness-110 hover:shadow-xl"
+                        style={{
+                            backgroundColor: 'var(--accent)',
+                            boxShadow: '0 8px 24px rgba(255,122,24,0.25)',
+                        }}
                     >
-                        استكشف المقالات
-                        <ArrowRight className={`w-5 h-5 ${isRrtl ? 'mr-2 rotate-180' : 'ml-2'}`} />
-                    </Button>
+                        {t('hero.primaryCta')}
+                        {/* Arrow flips direction in RTL */}
+                        <ArrowRight className={`w-5 h-5 ${isRtl ? 'rotate-180' : ''}`} />
+                    </Link>
 
-                    <Button
-                        variant="outline"
-                        size="lg"
-                        className="rounded-full px-10 py-6 text-base bg-transparent border-[rgba(255,255,255,0.15)] text-white hover:bg-white/5 hover:text-white"
+                    {/* Secondary — outline pill */}
+                    <Link
+                        to="/about"
+                        className="inline-flex items-center gap-2 rounded-full px-8 py-3.5 text-base font-medium text-[var(--text)] transition-all duration-200 hover:bg-white/[0.05]"
+                        style={{
+                            border: '1px solid var(--border)',
+                        }}
                     >
-                        اعرف المزيد
-                    </Button>
+                        {t('hero.secondaryCta')}
+                    </Link>
                 </motion.div>
 
-                {/* Stats Cards */}
+                {/* ── F) Stats row — 4 cards ── */}
                 <motion.div
                     initial={{ opacity: 0, y: 40 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.4 }}
                     className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 w-full max-w-4xl"
                 >
-                    <StatsCard icon={<Users />} number="6" label="كاتب" />
-                    <StatsCard icon={<Folder />} number="4" label="تصنيفات" />
-                    <StatsCard icon={<BookOpen />} number="10+" label="ألف قارئ" />
-                    <StatsCard icon={<FileText />} number="50+" label="مقالة" />
+                    <StatsCard
+                        icon={<Users />}
+                        number={t('hero.stats.writers.value')}
+                        label={t('hero.stats.writers.label')}
+                    />
+                    <StatsCard
+                        icon={<Folder />}
+                        number={t('hero.stats.categories.value')}
+                        label={t('hero.stats.categories.label')}
+                    />
+                    <StatsCard
+                        icon={<BookOpen />}
+                        number={t('hero.stats.readers.value')}
+                        label={t('hero.stats.readers.label')}
+                    />
+                    <StatsCard
+                        icon={<FileText />}
+                        number={t('hero.stats.articles.value')}
+                        label={t('hero.stats.articles.label')}
+                    />
                 </motion.div>
 
             </div>
@@ -104,14 +122,24 @@ export function Hero() {
     );
 }
 
-function StatsCard({ icon, number, label }: { icon: React.ReactNode, number: string, label: string }) {
+/* ── Stats card sub-component ──
+   Uses CSS custom properties for panel/border/accent.
+   Subtle hover: slight lift + accent border glow. */
+function StatsCard({ icon, number, label }: { icon: React.ReactNode; number: string; label: string }) {
     return (
-        <div className="flex flex-col items-center justify-center p-6 rounded-[18px] border bg-[#141414] border-[rgba(255,255,255,0.06)] shadow-xl shadow-black/20 group hover:border-[#ff7a00]/30 transition-colors">
-            <div className="mb-3 text-[#ff7a00] opacity-80 group-hover:opacity-100 transition-opacity">
+        <div
+            className="flex flex-col items-center justify-center p-6 shadow-xl shadow-black/20 group transition-all duration-200 hover:-translate-y-0.5 hover:border-[var(--accent)]/30"
+            style={{
+                backgroundColor: 'var(--panel)',
+                border: '1px solid var(--border)',
+                borderRadius: 'var(--radius-card)',
+            }}
+        >
+            <div className="mb-3 text-[var(--accent)] opacity-80 group-hover:opacity-100 transition-opacity">
                 {icon}
             </div>
-            <span className="text-2xl font-bold text-white mb-1">{number}</span>
-            <span className="text-sm text-[rgba(255,255,255,0.45)]">{label}</span>
+            <span className="text-2xl font-bold text-[var(--text)] mb-1">{number}</span>
+            <span className="text-sm text-[var(--muted)]">{label}</span>
         </div>
     );
 }

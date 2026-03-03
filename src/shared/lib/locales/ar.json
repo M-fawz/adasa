@@ -1,6 +1,7 @@
 {
     "brand": {
-        "name": "عدسة"
+        "name": "عدسة",
+        "tagline": "عالم التصوير"
     },
     "common": {
         "home": "الرئيسية",
@@ -15,7 +16,72 @@
         "categories": "التصنيفات",
         "latestPosts": "أحدث المقالات"
     },
+    "header": {
+        "startReading": "ابدأ القراءة"
+    },
+    "hero": {
+        "welcomeBadge": "مرحباً بك في عدسة",
+        "titleLine1": "اكتشف",
+        "titleHighlight": "فن",
+        "titleLine2": "التصوير الفوتوغرافي",
+        "subtitle": "انغمس في أسرار المحترفين ونصائح عملية لتطوير مهاراتك في التصوير",
+        "primaryCta": "استكشف المقالات",
+        "secondaryCta": "اعرف المزيد",
+        "stats": {
+            "writers": {
+                "value": "6",
+                "label": "كاتب"
+            },
+            "categories": {
+                "value": "4",
+                "label": "تصنيفات"
+            },
+            "readers": {
+                "value": "10+",
+                "label": "ألف قارئ"
+            },
+            "articles": {
+                "value": "50+",
+                "label": "مقالة"
+            }
+        }
+    },
+    "featured": {
+        "badge": "مميز",
+        "title": "مقالات مختارة",
+        "subtitle": "محتوى منتقى بعناية لأجلك",
+        "viewAll": "عرض الكل",
+        "readArticle": "اقرأ المقال",
+        "minRead": "دقائق قراءة"
+    },
+    "categories": {
+        "badge": "التصنيفات",
+        "title": "استكشف حسب الموضوع",
+        "subtitle": "ابحث على محتوى مصمم حسب اهتماماتك",
+        "articlesLabel": "مقالة"
+    },
+    "latestPosts": {
+        "badge": "الأحدث",
+        "title": "أحدث المقالات",
+        "subtitle": "آخر ما نشرناه من محتوى مميز",
+        "viewAll": "عرض جميع المقالات"
+    },
+    "newsletter": {
+        "titleStart": "اشترك في نشرتنا",
+        "titleAccent": "الإخبارية",
+        "subtitle": "احصل على أحدث المقالات والنصائح في عالم التصوير مباشرة إلى بريدك الإلكتروني",
+        "placeholder": "أدخل بريدك الإلكتروني",
+        "button": "اشترك الآن",
+        "trustUnsubscribe": "إلغاء الاشتراك في أي وقت",
+        "trustNoSpam": "بدون إزعاج",
+        "trustJoined": "مشترك"
+    },
     "footer": {
-        "rights": "جميع الحقوق محفوظة © 2024 عدسة"
+        "rights": "جميع الحقوق محفوظة © 2024 عدسة",
+        "copyright": "© 2026 عدسة. صنع بكل ❤️. جميع الحقوق محفوظة.",
+        "description": "منصة عربية متخصصة في عالم التصوير الفوتوغرافي والفنون البصرية",
+        "explore": "استكشف",
+        "stayUpdated": "ابقَ على اطلاع",
+        "subscribeDesc": "اشترك للحصول على آخر المقالات والنصائح"
     }
 }

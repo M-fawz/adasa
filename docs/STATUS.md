@@ -26,6 +26,12 @@
 - [x] Final UI Polish (Animations, Responsive checks)
 - [x] Featured Posts section implemented (pixel-perfect)
 
+## Phase 1 — Global Theme + Background ✅
+- [x] CSS design tokens (--bg, --panel, --text, --accent, etc.)
+- [x] Body base styles (dark bg + light text)
+- [x] `.app-bg` utility (grid overlay + radial edge glows)
+- [x] Tailwind semantic color aliases (surface, panel, accent…)
+
 ## In Progress 🟡
 - [ ] Data: Add Author info to `posts.json`
 - [ ] Final UI Polish (Animations, Responsive checks)

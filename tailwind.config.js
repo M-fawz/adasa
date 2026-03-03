@@ -33,7 +33,17 @@ export default {
                         secondary: 'rgba(255,255,255,0.65)',
                         muted: 'rgba(255,255,255,0.45)'
                     }
-                }
+                },
+                /* Phase 1 — semantic aliases referencing CSS custom properties */
+                surface: 'var(--bg)',
+                'surface-2': 'var(--bg-2)',
+                'panel': 'var(--panel)',
+                'panel-2': 'var(--panel-2)',
+                't-border': 'var(--border)',
+                't-accent': 'var(--accent)',
+                't-accent-soft': 'var(--accent-soft)',
+                't-text': 'var(--text)',
+                't-muted': 'var(--muted)',
             },
             borderRadius: {
                 '3xl': '24px', // Card radius

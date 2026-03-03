@@ -1,6 +1,7 @@
 {
     "brand": {
-        "name": "Adasa"
+        "name": "Adasa",
+        "tagline": "Photography World"
     },
     "common": {
         "home": "Home",
@@ -15,7 +16,72 @@
         "categories": "Categories",
         "latestPosts": "Latest Posts"
     },
+    "header": {
+        "startReading": "Start Reading"
+    },
+    "hero": {
+        "welcomeBadge": "Welcome to Adasa",
+        "titleLine1": "Discover",
+        "titleHighlight": "the Art",
+        "titleLine2": "of Photography",
+        "subtitle": "Dive into professional secrets and practical tips to improve your photography skills",
+        "primaryCta": "Explore Articles",
+        "secondaryCta": "Learn More",
+        "stats": {
+            "writers": {
+                "value": "6",
+                "label": "Writers"
+            },
+            "categories": {
+                "value": "4",
+                "label": "Categories"
+            },
+            "readers": {
+                "value": "10+",
+                "label": "K Readers"
+            },
+            "articles": {
+                "value": "50+",
+                "label": "Articles"
+            }
+        }
+    },
+    "featured": {
+        "badge": "Featured",
+        "title": "Featured Articles",
+        "subtitle": "Curated content just for you",
+        "viewAll": "View All",
+        "readArticle": "Read Article",
+        "minRead": "min read"
+    },
+    "categories": {
+        "badge": "Categories",
+        "title": "Discover by Topic",
+        "subtitle": "Find content designed for your interests",
+        "articlesLabel": "articles"
+    },
+    "latestPosts": {
+        "badge": "Latest",
+        "title": "Latest Articles",
+        "subtitle": "Our most recently published content",
+        "viewAll": "View All Articles"
+    },
+    "newsletter": {
+        "titleStart": "Subscribe to our",
+        "titleAccent": "Newsletter",
+        "subtitle": "Get the latest articles and tips in the world of photography delivered to your inbox",
+        "placeholder": "Enter your email",
+        "button": "Subscribe Now",
+        "trustUnsubscribe": "Unsubscribe anytime",
+        "trustNoSpam": "No spam",
+        "trustJoined": "subscribers"
+    },
     "footer": {
-        "rights": "All rights reserved © 2024 Adasa"
+        "rights": "All rights reserved © 2024 Adasa",
+        "copyright": "© 2026 Adasa. Made with ❤️. All rights reserved.",
+        "description": "An Arabic platform specialized in photography and visual arts",
+        "explore": "Explore",
+        "stayUpdated": "Stay Updated",
+        "subscribeDesc": "Subscribe to get the latest articles and tips"
     }
 }

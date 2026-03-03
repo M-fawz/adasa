@@ -6,19 +6,28 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode;
 }
 
+/* Badge — uses theme tokens to avoid white surfaces on dark backgrounds */
 export function Badge({ className, variant = 'default', ...props }: BadgeProps) {
     return (
         <div
             className={cn(
-                'inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-zinc-950 focus:ring-offset-2 dark:focus:ring-zinc-300',
+                'inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-semibold transition-colors',
                 {
-                    'border-transparent bg-primary-500 text-white shadow hover:bg-primary-600':
+                    'border-transparent text-white shadow hover:brightness-110':
                         variant === 'default',
-                    'text-zinc-950 dark:text-zinc-50 border border-zinc-200 dark:border-zinc-800':
+                    'text-[var(--muted)]':
                         variant === 'outline',
                 },
                 className
             )}
+            style={{
+                ...(variant === 'default'
+                    ? { backgroundColor: 'var(--accent)' }
+                    : {
+                        backgroundColor: 'transparent',
+                        border: '1px solid var(--border)',
+                    }),
+            }}
             {...props}
         />
     );

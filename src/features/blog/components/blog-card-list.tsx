@@ -19,7 +19,12 @@ export function BlogCardList({ posts, viewMode, isLoading }: BlogCardListProps) 
                 viewMode === 'grid' ? 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3' : 'grid-cols-1'
             )}>
                 {Array.from({ length: 6 }).map((_, i) => (
-                    <div key={i} className="animate-pulse bg-zinc-100 dark:bg-zinc-800 rounded-3xl h-[400px]" />
+                    /* Skeleton uses panel token — never white */
+                    <div
+                        key={i}
+                        className="animate-pulse h-[400px]"
+                        style={{ backgroundColor: 'var(--panel)', borderRadius: 'var(--radius-card)' }}
+                    />
                 ))}
             </div>
         );
@@ -28,7 +33,7 @@ export function BlogCardList({ posts, viewMode, isLoading }: BlogCardListProps) 
     if (posts.length === 0) {
         return (
             <div className="text-center py-20">
-                <p className="text-xl text-zinc-500">{t('common.noPosts')}</p>
+                <p className="text-xl text-[var(--muted)]">{t('common.noPosts')}</p>
             </div>
         );
     }

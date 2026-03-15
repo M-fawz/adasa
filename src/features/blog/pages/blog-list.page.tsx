@@ -38,7 +38,7 @@ export default function BlogListPage() {
         setQueryParams({
             category: filter.categoryId,
             q: filter.search,
-            page: filter.page > 1 ? filter.page.toString() : undefined,
+            page: filter.page !== undefined && filter.page > 1 ? filter.page.toString() : undefined,
             view: viewMode // Keep view mode in URL
         }, true);
     }, [filter, viewMode, setQueryParams]);

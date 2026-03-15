@@ -1,7 +1,7 @@
 import { useEffect, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { ArrowRight, ArrowLeft, Camera, Aperture, Sun, Mountain, Users, FileText, Clock, Mail } from 'lucide-react';
+import { ArrowRight, ArrowLeft, Camera, Aperture, Sun, Mountain, Users, Mail } from 'lucide-react';
 import { useBlogStore } from '@/features/blog/state/blog.store';
 import { BlogCard } from '@/features/blog/components/blog-card';
 import { Hero } from '@/features/blog/components/hero';
